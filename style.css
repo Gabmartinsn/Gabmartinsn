@@ -1,0 +1,411 @@
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at bottom, #0D1E31, #111);
+  overflow: hidden;
+}
+
+.night {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateZ(40deg);
+}
+
+.star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 4px;
+  background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px #699BFF);
+  animation: tail 3s ease-in-out infinite, falling 3s ease-in-out infinite;
+}
+
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes falling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(300px);
+  }
+}
+
+.star::before,
+.star::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 2px);
+  right: 0;
+  height: 4px;
+  background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+  border-radius: 100%;
+  transform: translateX(50%) rotateZ(45deg);
+  animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+.star::after {
+  transform: translateX(50%) rotateZ(-45deg);
+}
+
+.birthdayCard .cardFront .night {
+  display: none;
+}
+
+
+.birthdayCard:hover .night {
+  display: block;
+}
+
+
+
+.star:nth-child(1) {
+  top: calc(50% - 100px);
+  left: calc(50% - 250px);
+  animation-delay: 1s;
+}
+
+.star:nth-child(1)::before,
+.star:nth-child(1)::after {
+  animation-delay: 1s;
+}
+
+.star:nth-child(2) {
+  top: calc(50% - 50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(2)::before,
+.star:nth-child(2)::after {
+  animation-delay: 1.2s;
+}
+
+.star:nth-child(3) {
+  top: calc(50% - 0px);
+  left: calc(50% - 150px);
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(3)::before,
+.star:nth-child(3)::after {
+  animation-delay: 1.4s;
+}
+
+.star:nth-child(4) {
+  top: calc(50% - -50px);
+  left: calc(50% - 200px);
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(4)::before,
+.star:nth-child(4)::after {
+  animation-delay: 1.6s;
+}
+
+.star:nth-child(5) {
+  top: calc(50% - -100px);
+  left: calc(50% - 250px);
+  animation-delay: 1.8s;
+}
+
+.star:nth-child(5)::before,
+.star:nth-child(5)::after {
+  animation-delay: 1.8s;
+}
+
+
+.birthdayCard {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 4s;
+}
+
+.birthdayCard:hover {
+  transform: perspective(2500px) rotate(5deg);
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .15), 0 10px 100px rgba(0, 0, 0, 0.3);
+}
+
+.birthdayCard:hover .cardFront {
+  transform: rotateY(-160deg);
+}
+
+.birthdayCard:hover .front-text {
+  display: none;
+}
+
+.birthdayCard:hover .wrap-deco,
+.birthdayCard:hover .wrap-decoTwo {
+  display: none;
+}
+
+.birthdayCard:hover .plate {
+  display: none;
+}
+
+.cardFront {
+  position: relative;
+  background-color: rgb(255, 246, 246);
+  width: 250px;
+  height: 350px;
+  overflow: hidden;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+  transition: .4s;
+}
+
+.happy {
+  position: relative;
+  font-family: didot;
+  text-align: center;
+  backface-visibility: hidden;
+  font-size: 36px;
+}
+
+.happy {
+  top: 190px;
+}
+
+.toyou {
+  position: relative;
+  font-family: didot;
+  text-align: center;
+  backface-visibility: hidden;
+  font-size: 10px;
+  top: 145px;
+}
+
+.bday {
+  position: relative;
+  font-family: arial;
+  font-size: 36px;
+  text-align: center;
+  top: 145px;
+}
+
+.plate:before {
+  content: "";
+  position: absolute;
+  background: repeating-linear-gradient(-45deg, #9b5de5, #9b5de5 3px, #00f5d4 3px, #00f5d4 6px);
+  width: 7px;
+  height: 25px;
+  top: -75px;
+  left: 61px;
+}
+
+.plate:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 5px;
+  background-color: #333;
+  top: -80px;
+  left: 64px;
+}
+
+.flame {
+  position: absolute;
+  background-color: #fb5607;
+  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  transform: rotate(-45deg);
+  width: 15px;
+height: 15px;
+  opacity: 0.7;
+  top: -93px;
+  left: 57px;
+}
+
+
+.cardInside {
+  position: absolute;
+  background-color: #fff;
+  width: 250px;
+  height: 350px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+}
+
+.inside-text {
+  position: relative;
+  top: -80px;
+  transform: scale(0.7);
+  text-align: justify;
+}
+
+.inside-text p {
+  font-size: 25px;
+}
+
+.wishes {
+  position: relative;
+  top: -0px;
+  margin: 50px;
+}
+
+p {
+  font-family: 'Brush Script MT';
+  color: #333;
+}
+
+.name {
+  margin-left: 80px;
+  margin-top: 20px;
+}
+
+
+
+.heart {
+    background-color: #E93D3D;
+    position: absolute;
+    width: 100px;
+    height: 160px;
+    top: 10%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    animation: heart 5s ease infinite alternate;
+}
+
+
+.birthdayCard .cardFront .heart {
+  display: block;
+}
+
+
+.birthdayCard:hover .heart {
+  display: none;
+}
+
+
+@keyframes heart {
+    0% {
+        width: 100px
+    height: 100px;
+        border-radius: 15px;
+    }
+    20% {
+        width: 100px;
+        height: 100px;
+        transform: rotate(0deg);
+    }
+    45% {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform: rotate(45deg) scale(1);
+    }
+    50% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    55% {
+        transform: rotate(45deg) scale(1);
+    }
+    60% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    65% {
+        transform: rotate(45deg) scale(1);
+    }
+    70% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    75% {
+        transform: rotate(45deg) scale(1);
+    }
+    80% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    85% {
+        transform: rotate(45deg) scale(1);
+    }
+    90% {
+        transform: rotate(45deg) scale(1.2);
+    }
+    95% {
+        transform: rotate(45deg) scale(1);
+    }
+    100% {
+        width: 100px;
+        height: 160px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform: rotate(45deg) scale(1.2);
+    }
+}
+
+.heart::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-origin: left bottom;
+    transition: .5s ease;
+    background-color: #D62424;
+    animation: heart_after 5s ease infinite alternate;
+}
+
+@keyframes heart_after {
+    0% {
+        border-radius: 15px;
+    }
+    20% {
+        transform: rotate(0deg) translateY(0px);
+    }
+    40% {
+        transform: rotate(0deg) translateY(0px);
+    }
+    45% {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform: rotate(-450deg) translateY(100px);
+    }
+    100% {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform: rotate(-450deg) translateY(100px);
+    }
+}
